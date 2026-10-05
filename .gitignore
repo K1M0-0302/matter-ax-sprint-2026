@@ -13,8 +13,7 @@ firmware/**/.west/
 firmware/**/twister-out*/
 firmware/*.log
 
-# Editor and OS noise
-.vscode/
+# Editor and OS noise (firmware/.vscode is shared on purpose)
 .idea/
 *.swp
 .DS_Store
