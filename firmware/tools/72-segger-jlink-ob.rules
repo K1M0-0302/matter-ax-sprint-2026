@@ -1,0 +1,5 @@
+# 72-segger-jlink-ob.rules
+# SEGGER J-Link OB on Nordic DKs (USB VID 1366): debugger + virtual COM ports.
+# Allow non-root access and keep ModemManager away from the CDC ACM ports.
+SUBSYSTEM=="usb", ATTRS{idVendor}=="1366", MODE="0666"
+KERNEL=="ttyACM[0-9]*", SUBSYSTEM=="tty", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1366", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"

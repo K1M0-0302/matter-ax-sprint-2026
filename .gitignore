@@ -1,0 +1,25 @@
+# Submission forms and exported documents (may contain personal data)
+pm/*.pdf
+pm/*.docx
+pm/*.hwp
+pm/**/*.pdf
+pm/**/*.docx
+pm/**/*.hwp
+
+# Zephyr / nRF Connect SDK build output
+firmware/**/build/
+firmware/**/build-*/
+firmware/**/.west/
+firmware/**/twister-out*/
+
+# Editor and OS noise
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+.venv/
