@@ -16,9 +16,14 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-TARGET_USER="${SUDO_USER:-}"
+# Works under both sudo (SUDO_USER) and pkexec (PKEXEC_UID); a username may
+# also be passed as the first argument.
+TARGET_USER="${1:-${SUDO_USER:-}}"
+if [[ -z "$TARGET_USER" && -n "${PKEXEC_UID:-}" ]]; then
+  TARGET_USER="$(id -nu "$PKEXEC_UID")"
+fi
 if [[ -z "$TARGET_USER" ]]; then
-  echo "SUDO_USER is empty; run via sudo from your normal user account." >&2
+  echo "Cannot determine target user; run via sudo/pkexec or pass the username as \$1." >&2
   exit 1
 fi
 

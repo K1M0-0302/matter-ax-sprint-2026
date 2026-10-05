@@ -6,11 +6,12 @@ pm/**/*.pdf
 pm/**/*.docx
 pm/**/*.hwp
 
-# Zephyr / nRF Connect SDK build output
+# Zephyr / nRF Connect SDK build output and local logs
 firmware/**/build/
 firmware/**/build-*/
 firmware/**/.west/
 firmware/**/twister-out*/
+firmware/*.log
 
 # Editor and OS noise
 .vscode/
